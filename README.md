@@ -3,7 +3,6 @@ Web-API for [burnermail.io](https://burnermail.io/) an tool to generate a random
 
 ## Example
 ```cs
-using System;
 using BurnerMailApi;
 
 namespace Application
