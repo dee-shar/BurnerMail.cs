@@ -1,7 +1,6 @@
-using System;
 using System.Text;
-using System.Text.Json;
 using System.Net.Http;
+using System.Text.Json;
 using System.Net.Http.Json;
 using System.Net.Http.Headers;
 
@@ -80,7 +79,7 @@ namespace BurnerMailApi
         {
             var response = await httpClient.GetAsync($"{apiUrl}/v1/hash");
             return await response.Content.ReadAsStringAsync();
-        } 
+        }
         public async Task<string> GetAccountInfo()
         {
             var response = await httpClient.GetAsync($"{apiUrl}/v1/users.json");
@@ -91,7 +90,7 @@ namespace BurnerMailApi
             var response = await httpClient.GetAsync($"{apiUrl}/v1/virtual_emails.json");
             return await response.Content.ReadAsStringAsync();
         }
-        public async Task<string> CreateVirtualEmail(string email) 
+        public async Task<string> CreateVirtualEmail(string email)
         {
             string hash = await GetHash();
             var payload = new
@@ -136,7 +135,7 @@ namespace BurnerMailApi
             return await response.Content.ReadAsStringAsync();
         }
 
-        public async Task<string> DeleteEmail (string email)
+        public async Task<string> DeleteEmail(string email)
         {
             var data = JsonContent.Create(new { email = email });
             var response = await httpClient.PostAsync($"{apiUrl}/v1/emails/open", data);
